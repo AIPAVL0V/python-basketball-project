@@ -216,4 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
->>>>>>> 4be7ab6d039e3d4d82b61d49dcff8daf98a2bfbd
+
+# Project data
+data/
+csv/
+
+# Local virtual environment
+.venv/
