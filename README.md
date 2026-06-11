@@ -18,6 +18,9 @@ The dataset contains basketball-related data, including information about player
 
 The dataset files are stored locally in the following folder:
 
+**Processed files**
+https://drive.google.com/drive/folders/1g4MZedouQvNmU36uG173ceIktg0ezUFF?usp=sharing
+
 ```text
 data/raw/
 ```
