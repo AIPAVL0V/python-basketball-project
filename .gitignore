@@ -218,7 +218,8 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Project data
-data/
+data/processed
+data/raw
 csv/
 
 # Local virtual environment
