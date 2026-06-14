@@ -18,4 +18,3 @@ This project analyzes basketball data using Python.
 The main goal is to explore player statistics, clean the dataset,
 visualize important patterns, and test hypotheses about player performance.
 """)
-
