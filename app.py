@@ -29,8 +29,9 @@ predict their NBA career performance in points, assists, and rebounds.
 Tests whether a team's 3-point field goal percentage correlates with its winning percentage
 across NBA regular seasons since 1979.
 
-### Player Search *(in progress)*
-Search for individual player statistics by name. Coming soon.
+### Player Search
+Search for individual players and view their draft information, physical measurements, and NBA performance metrics.  
+The page also allows users to compare two numerical variables, calculate Pearson correlation, and visualize the relationship with a scatter plot.
 
 ### Team Search
 Look up all-time aggregate statistics for any NBA team by abbreviation or full name.
