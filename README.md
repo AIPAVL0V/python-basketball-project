@@ -83,24 +83,38 @@ Possible indicators for this hypothesis may include:
 python-basketball-project/
 │
 ├── data/
-│   └── raw/                         # Raw dataset files
+│   ├── raw/                              # Raw dataset files
+│   ├── processed/                        # Cleaned data (game.csv, etc.)
+│   └── app/                              # Lightweight CSVs for the dashboard
+│       ├── team_season_stats.csv         # Team stats per season (Hypothesis 2)
+│       └── team_stats.csv               # All-time team stats (Team Search)
 │
 ├── notebooks/
-│   └── exploratory_analysis.ipynb   # Main Jupyter Notebook
+│   ├── exploratory_analysis.ipynb        # Exploratory data analysis
+│   ├── data_processing.ipynb             # Data cleaning pipeline
+│   └── hypothesis_3pt-wins.ipynb         # Hypothesis 2 analysis + data export
+│
+├── pages/                                # Streamlit multi-page app
+│   ├── 1_Hypothesis_1.py                 # Hypothesis 1 page (partner)
+│   ├── 2_Hypothesis_2.py                 # Hypothesis 2 page (3PT% vs Win%)
+│   ├── 3_Player_Search.py                # Player search stub (in progress)
+│   └── 4_Team_Search.py                  # Team search page (uses FastAPI)
 │
 ├── reports/
-│   └── final_report.md              # Final project report
+│   └── final_report.md                   # Final project report
 │
 ├── src/
-│   ├── analysis.py                  # Analysis functions
-│   ├── data_cleaning.py             # Data cleaning functions
-│   └── data_loading.py              # Data loading functions
+│   ├── analysis.py                       # Analysis functions
+│   ├── data_cleaning.py                  # Data cleaning functions
+│   └── data_loading.py                   # Data loading functions
 │
-├── main.py                          # Main Python file
-├── requirements.txt                 # Required Python libraries
-├── README.md                        # Project description
-├── LICENSE                          # Project license
-└── .gitignore                       # Ignored files and folders
+├── app.py                                # Streamlit main page
+├── api.py                                # FastAPI backend (GET /team)
+├── main.py                               # Entry point placeholder
+├── requirements.txt                      # Required Python libraries
+├── README.md                             # Project description
+├── LICENSE                               # Project license
+└── .gitignore                            # Ignored files and folders
 ```
 
 ## Technologies Used
@@ -154,6 +168,8 @@ pip install -r requirements.txt
 
 ## How to Run the Project
 
+### Notebooks
+
 Open Jupyter Notebook:
 
 ```bash
@@ -167,6 +183,28 @@ notebooks/exploratory_analysis.ipynb
 ```
 
 This notebook contains the main exploratory data analysis and hypothesis testing.
+
+### Streamlit dashboard + FastAPI
+
+The interactive dashboard requires two processes running simultaneously — open two terminal windows.
+
+**Terminal 1 — start the API server:**
+
+```bash
+uvicorn api:app --reload --port 8000
+```
+
+**Terminal 2 — start the Streamlit app:**
+
+```bash
+streamlit run app.py
+```
+
+The dashboard will open automatically at `http://localhost:8501`.  
+The Team Search page communicates with the API at `http://127.0.0.1:8000`.
+
+> Make sure `data/app/team_season_stats.csv` and `data/app/team_stats.csv` exist before launching.  
+> If they are missing, run `notebooks/hypothesis_3pt-wins.ipynb` first.
 
 ## Project Workflow
 
