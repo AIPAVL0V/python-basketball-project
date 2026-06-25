@@ -198,43 +198,6 @@ st.pyplot(fig1)
 
 
 st.markdown("""
-## League-wide trend over seasons
-
-The chart below shows how the league-average 3PT% and win% have evolved over time.
-Both axes are independent so the trends can be compared visually.
-""")
-
-season_trend = team_season.groupby("season").agg(
-    avg_fg3_pct=("avg_fg3_pct", "mean"),
-    avg_win_pct=("win_pct", "mean")
-).reset_index()
-
-fig2, ax_left = plt.subplots(figsize=(12, 6))
-
-ax_left.set_xlabel("Season")
-ax_left.set_ylabel("Average 3PT%", color="tab:blue")
-ax_left.plot(
-    season_trend["season"],
-    season_trend["avg_fg3_pct"],
-    color="tab:blue", marker="o", markersize=4, label="3PT%"
-)
-ax_left.tick_params(axis="y", labelcolor="tab:blue")
-
-ax_right = ax_left.twinx()
-ax_right.set_ylabel("Average Win%", color="tab:red")
-ax_right.plot(
-    season_trend["season"],
-    season_trend["avg_win_pct"],
-    color="tab:red", marker="s", markersize=4, label="Win%"
-)
-ax_right.tick_params(axis="y", labelcolor="tab:red")
-
-plt.title("League-Wide 3PT% and Win% Trends Over Seasons")
-fig2.tight_layout()
-st.pyplot(fig2)
-
-
-st.markdown("""
 ## Top 10 teams by 3PT% vs the rest
 
 Each season, teams were ranked by their average 3-point percentage.
